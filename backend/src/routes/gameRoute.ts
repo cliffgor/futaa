@@ -4,8 +4,8 @@ import { Router } from "express";
 
 const router:Router = Router();
 
-router.get("/api/games", getAllGames);
-router.post("api/games/game", createGame)
+router.get("/", getAllGames);
+router.post("/game", createGame)
 
 
 export default router;
