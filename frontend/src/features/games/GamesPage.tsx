@@ -12,12 +12,18 @@ export default function GamesPage() {
             <h2 className="H2">Karibu Futaa</h2>
             <Grid container >
                 {games && games.map(game => (
-                    <Grid key={game._id} xs={3} sx={{
+                    <><Grid key={game._id} xs={3} sx={{
                         backgroundImage: 'linear-gradient(90deg, #588880, #bdbddb)'
-                        }}>
-                        <h4>Location: {game.address}</h4>
-                        <h4>{game.time}</h4>
-                    </Grid>
+                    }}>
+                        <h4>Location:{game.address}</h4>
+                        <li>
+                        {game.time}
+                        </li>
+                        <p>
+                        Number Of People: {game.numberOfPeople}
+                        </p>
+                    </Grid></>
+                    
                 ))}
             </Grid>
         </Container>
