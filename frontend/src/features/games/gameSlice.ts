@@ -7,12 +7,14 @@ interface GameState {
     games: Game [] | null;
     loading: boolean;
     singleGame: Game | null;
+    errors:any,
 }
 
 const initialState: GameState = {
     games: [],
     singleGame: null,
-    loading: false
+    loading: false,
+    errors:null
 }
 
 
@@ -28,7 +30,12 @@ export const getGames = createAsyncThunk<Game[]> (
             return thunkAPI.rejectWithValue(error)
         }
     } 
-    )
+    );
+
+    export const createGame = createAsyncThunk<Game, Object(
+        "games/createGame",
+
+    )>
 
 // reducers  -> reduce to a specific state/ changes state
 export const gameSlice = createSlice({
@@ -38,5 +45,18 @@ export const gameSlice = createSlice({
         setGames: (state, action: PayloadAction<Game[]>) => {
             state.games = action.payload
         }
+    }, 
+    extraReducers: (builder) => {
+        builder.addCase(getGames.pending, (state) => {
+            state.loading = true 
+        })
+        builder.addCase(getGames.fulfilled, (state, action) => {
+            state.games =  action.payload
+            state.loading = false
+        })
+        builder.addCase(getGames.rejected, (state, action) => {
+            state.loading = false;
+            state.errors = action.payload
+        })
     }
 })
