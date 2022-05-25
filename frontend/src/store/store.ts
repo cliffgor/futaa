@@ -1,10 +1,11 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { configureStore } from "@reduxjs/toolkit";
+import gameReducer from "../features/games/gameSlice"
 
 export const store = configureStore({
     reducer: {
-        games:gamereducer
+        games:gameReducer
     }
 })
 

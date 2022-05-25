@@ -37,6 +37,7 @@ export const getGames = createAsyncThunk<Game[]> (
         async (data, thunkAPI) => {
             try {
                 const response = await axios.post("http://localhost:/8080/api/games/game", data)
+                thunkAPI.dispatch(getGames())
                 return response.data
             } catch (error) {
                 return thunkAPI.rejectWithValue(error)
@@ -68,3 +69,6 @@ export const gameSlice = createSlice({
         })
     }
 })
+
+export default gameSlice.reducer;
+export const { setGames } = gameSlice.actions;
