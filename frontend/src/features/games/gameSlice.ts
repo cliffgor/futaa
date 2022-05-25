@@ -31,11 +31,19 @@ export const getGames = createAsyncThunk<Game[]> (
         }
     } 
     );
-
-    export const createGame = createAsyncThunk<Game, Object(
+    
+    export const createGame = createAsyncThunk<Object, Game>(
         "games/createGame",
+        async (data, thunkAPI) => {
+            try {
+                const response = await axios.post("http://localhost:/8080/api/games/game", data)
+                return response.data
+            } catch (error) {
+                return thunkAPI.rejectWithValue(error)
+            }
+        }
 
-    )>
+    )
 
 // reducers  -> reduce to a specific state/ changes state
 export const gameSlice = createSlice({
