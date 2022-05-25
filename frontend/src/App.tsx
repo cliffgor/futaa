@@ -3,7 +3,8 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React, { useCallback, useEffect } from 'react';
 
-import GamesPage from './features/games/FieldPage';
+import GamesPage from './features/games/GamesPage';
+import NavBar from './components/Navbar';
 import { getGames } from './features/games/gameSlice';
 import { useAppDispatch } from './store/store';
 
@@ -20,6 +21,7 @@ function App() {
   })
   return (
     <BrowserRouter>
+    <NavBar />
     <Routes>
       <Route path="/" element={<GamesPage/>} />
     </Routes>
