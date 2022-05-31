@@ -7,5 +7,4 @@ export interface Game {
     date:Date;
     time: string;
     fieldNumber: number;
-    children?: JSX.Element|JSX.Element[];
 }

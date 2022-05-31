@@ -10,7 +10,7 @@ interface GameState {
     errors:any,
 }
 
-const initialState: GameState = {
+const initialState: GameState = { 
     games: [],
     singleGame: null,
     loading: false,
