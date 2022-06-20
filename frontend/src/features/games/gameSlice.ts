@@ -55,10 +55,15 @@ export const gameSlice = createSlice({
             state.games = action.payload
         }
     }, 
+
+    // If the process is pending we should not show any games to our app
     extraReducers: (builder) => {
         builder.addCase(getGames.pending, (state) => {
             state.loading = true 
         })
+
+    // If the process is loading and the games are found the 
+    // we set the state action to false which would have finished loading and displayed the games
         builder.addCase(getGames.fulfilled, (state, action) => {
             state.games =  action.payload
             state.loading = false

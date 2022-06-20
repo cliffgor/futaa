@@ -16,4 +16,5 @@ export type AddDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AddDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
-
+// dispatch is a function of the Redux store.
+//  You call store.dispatch to dispatch an action. This is the only way to trigger a state change.
