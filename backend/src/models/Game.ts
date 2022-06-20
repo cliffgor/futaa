@@ -19,3 +19,9 @@ const GamesSchema = new Schema<Game>({
 
 
 export default model<Game>('Game', GamesSchema)
+
+// What is an Interface
+// In TypeScript, an interface is an abstract type that 
+// tells the compiler which property names a given object can have. 
+// TypeScript creates implicit interfaces when you define an object with properties. 
+// It starts by looking at the object's property name and data type using TypeScript's type inference abilities.

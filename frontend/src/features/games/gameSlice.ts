@@ -72,3 +72,5 @@ export const gameSlice = createSlice({
 
 export default gameSlice.reducer;
 export const { setGames } = gameSlice.actions;
+
+// A slice has to have the interface if the state

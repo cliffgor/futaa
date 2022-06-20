@@ -5,12 +5,15 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import gameRoute from './routes/gameRoute'
 
+// We will import our Routes here
+
+
 const app:Application = express()
 app.use(express.json())
 app.use(cors())
 
 
-// We will import our Routes here
+
 
 
 // We will declare our routes here
